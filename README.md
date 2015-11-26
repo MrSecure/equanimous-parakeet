@@ -13,4 +13,6 @@ Running ```vagrant up``` from this repo will
 * disable the header_register_callback function in php.ini
 * re-run the Apache Benchmark cleanly
 
+The resulting output will look something like the example-run files
+
 
