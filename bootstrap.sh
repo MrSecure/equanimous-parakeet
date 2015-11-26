@@ -26,6 +26,24 @@ systemctl start httpd
 
 sleep 5
 
+echo "Initial Apache Benchmark - 100 iterations of frontpage_federation"
+
 ab -n 100 'http://127.0.0.1/simplesaml/module.php/core/frontpage_federation.php'
 
+echo "\nHTTP Error Log (last 10 lines)"
+tail -10 /var/log/httpd/error_log
+
+sleep 5
+
+echo "Disabling header_register_callback"
+sed -i 's#disable_functions =#disable_functions = header_register_callback#g' /etc/php.ini
+
+systemctl restart httpd
+
+echo "Follow-up Apache Benchmark - 100 iterations of frontpage_federation"
+
+ab -n 100 'http://127.0.0.1/simplesaml/module.php/core/frontpage_federation.php'
+
+echo "\nHTTP Error Log (last 10 lines)"
+tail -10 /var/log/httpd/error_log
 
