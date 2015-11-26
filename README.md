@@ -1,6 +1,6 @@
 # Segfault Test
 
-SimpleSAMLphp introduced the use of header_register_callback at some point after 1.13.2.
+[SimpleSAMLphp](https://simplesamlphp.org/) introduced the use of header_register_callback at  [a48e10ff](https://github.com/simplesamlphp/simplesamlphp/commit/a48e10f6e0e1603d68d50d40c1135077b51f931b)
 
 Using CentOS 7.1 / Apache 2.4.6 / PHP 5.4.16  this leads to segmentation faults.
 
